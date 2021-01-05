@@ -8,6 +8,11 @@ imports:
 parameters:
     locale: en
 
+stg_theme: 
+    configuration: 
+        offline: false 
+        materialize: true 
+
 framework:
     #esi: ~
     #translator: { fallbacks: ['%locale%'] }
@@ -35,6 +40,9 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals: 
+        datos_encabezados_title: Registro de licitadores 
+        datos_encabezado_entity: Ministerio de Infraestructura, Servicios Públicos y Hábitat 
 
 # Doctrine Configuration
 doctrine:

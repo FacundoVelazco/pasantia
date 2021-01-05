@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Boletin</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ boletin.id }}</td>
+            </tr>
+            <tr>
+                <th>Agente</th>
+                <td>{{ boletin.agente }}</td>
+            </tr>
+            <tr>
+                <th>Dni</th>
+                <td>{{ boletin.dni }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{% if boletin.fecha %}{{ boletin.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ boletin.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Destino</th>
+                <td>{{ boletin.destino }}</td>
+            </tr>
+            <tr>
+                <th>Horasalida</th>
+                <td>{% if boletin.horaSalida %}{{ boletin.horaSalida|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Horaregreso</th>
+                <td>{% if boletin.horaRegreso %}{{ boletin.horaRegreso|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Tiempototal</th>
+                <td>{{ boletin.tiempoTotal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('boletin_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('boletin_edit', { 'id': boletin.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Boletins list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Agente</th>
+                <th>Dni</th>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Destino</th>
+                <th>Horasalida</th>
+                <th>Horaregreso</th>
+                <th>Tiempototal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for boletin in boletins %}
+            <tr>
+                <td><a href="{{ path('boletin_show', { 'id': boletin.id }) }}">{{ boletin.id }}</a></td>
+                <td>{{ boletin.agente }}</td>
+                <td>{{ boletin.dni }}</td>
+                <td>{% if boletin.fecha %}{{ boletin.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ boletin.tipo }}</td>
+                <td>{{ boletin.destino }}</td>
+                <td>{% if boletin.horaSalida %}{{ boletin.horaSalida|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if boletin.horaRegreso %}{{ boletin.horaRegreso|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ boletin.tiempoTotal }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('boletin_show', { 'id': boletin.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('boletin_edit', { 'id': boletin.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('boletin_new') }}">Create a new boletin</a>
+        </li>
+    </ul>
+{% endblock %}
