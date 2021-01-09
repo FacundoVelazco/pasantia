@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 align="center">Nueva Dependencia</h1>
+    <div style="width:100%;padding:10px 10px 10px 10px">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+                <input class="btn btn-success btn-sm" type="submit" value="Crear" align="center"/>
+        {{ form_end(form) }}
+    </div>
+    <hr><hr>
+    <ul>
+        <p>
+            <a class="btn btn-primary btn-sm" href="{{ path('dependencia_index') }}">Volver al Historial de Dependencias</a>  
+        </p>    
+    </ul>
+    <ul>
+        <p>
+            <a class="btn btn-primary btn-sm" href="{{ path('homepage') }}">Home</a>
+        </p>
+    </ul>
+{% endblock %}

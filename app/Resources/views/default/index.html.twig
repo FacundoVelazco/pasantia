@@ -1,33 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome" align='center'>
-                <h1><span>Boletin de salida temporaria</span> </h1>
-            </div>
+{% block content %}
+    <div id="wrapper" style="background-color:#FFF">
+            <div id="container">
+                <div id="welcome" align='center'>
+                    <h1><span>Boletin De Salida Temporaria</span> </h1>
+                </div>
+                <hr color="#FDFEFE"><hr>
+                <div id="status" align="center"> 
+                {# btn btn-success te deja el boton en verde#}
+                    <p>
+                      <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("boletinsalida_new") }}">Nuevo Boletin</a>
+                    </p> 
+                    <p> 
+                      <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("boletinsalida_index") }}">Historial</a>
+                    </p> 
+                    <p> 
+                      <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("dependencia_index") }}">Dependencias</a>
+                    </p>
 
-            <div id="status">
-                <p>
-                   <form action="default/boletinsalida.html.twig" method="get" >
-                   <center> 
-                    <input type="submit" value="Crear boletin nuevo"/>
-                    </center> 
-                    </form> 
-                    <form action="http://facebook.com" method="get" >
-                   <center>
-                    <input type="submit" value="Ver historial" /> 
-                    </center> 
-                    </form>
-                    
-                </p>
+                </div>
             </div>
-
-            <div id="next">
-                
-            </div>
-
-        </div>
     </div>
 {% endblock %}
 
@@ -47,15 +40,16 @@
     #welcome h1 span { display: block; font-size: 75%; }
     #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
     #icon-book { display: none; }
-
     @media (min-width: 768px) {
         #wrapper { width: 80%; margin: 2em auto; }
         #icon-book { display: inline-block; }
         #status a, #next a { display: block; }
-
         @-webkit-keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
         @keyframes fade-in { 0% { opacity: 0; } 100% { opacity: 1; } }
         .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
+    }
+    .custom { 
+      min-width: 80px; max-width: 80px; 
     }
 </style>
 {% endblock %}

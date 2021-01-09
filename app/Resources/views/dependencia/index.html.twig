@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 align="center">Dependencias</h1>
+    <hr><hr>
+    <table style="width:100%;margin-left:100px">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody >
+        {% for dependencium in dependencias %}
+            <tr>
+                <td><a>{{ dependencium.id }}</a></td>
+                <td>{{ dependencium.descripcion }}</td>
+                <td>
+                    <div class="btn-group">
+                        <p>
+                            <a class="btn btn-primary btn-sm" href="{{ path('dependencia_show', { 'id': dependencium.id }) }}">show</a>
+                        </p>
+                        <p>
+                            <a class="btn btn-secondary btn-sm" href="{{ path('dependencia_edit', { 'id': dependencium.id }) }}">edit</a>
+                        </p>
+                    </div>    
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr><hr>
+    <ul>
+        <p>
+            <a class="btn btn-primary btn-sm" href="{{ path('dependencia_new') }}">Nueva Dependencia</a>
+        </p>
+    </ul>
+    <ul>
+        <p>
+            <a class="btn btn-primary btn-sm" href="{{ path('homepage') }}">Home</a>
+        </p>
+    </ul>
+{% endblock %}

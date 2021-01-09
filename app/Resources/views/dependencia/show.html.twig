@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 align="center">Dependencia</h1>
+    <table style="width:100%;margin-left:200px">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descripcion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <td><a>{{ dependencium.id }}</a></td>
+                <td>{{ dependencium.descripcion }}</td>
+                <td>
+                    <div class="btn-group">
+                        <p>
+                            {{ form_start(delete_form) }}
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                            {{ form_end(delete_form) }}                       
+                        </p>
+                        <p>
+                            <a class="btn btn-secondary btn-sm" href="{{ path('dependencia_edit', { 'id': dependencium.id }) }}">edit   </a>
+                        </p>
+                    </div>    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr></hr>
+    <div align="center">
+        <p>
+            <a class="btn btn-primary btn-sm" href="{{ path('dependencia_index') }}">Lista de Dependencias</a>
+        </p>
+    </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 align="center">Boletin de Salida</h1>
+    <hr></hr>
+    <table style="width:100%;margin-left:30px">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Agente</th>
+                <th>Dni</th>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Destino</th>
+                <th>Horasalida</th>
+                <th>Horaregreso</th>
+                <th>Tiempototal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a>{{ boletinSalida.id }}</a></td>
+                <td>{{ boletinSalida.agente }}</td>
+                <td>{{ boletinSalida.dni }}</td>
+                <td>{% if boletinSalida.fecha %}{{ boletinSalida.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ boletinSalida.tipo }}</td>
+                <td>{{ boletinSalida.destino }}</td>
+                <td>{% if boletinSalida.horaSalida %}{{ boletinSalida.horaSalida|date('H:i:s') }}{% endif %}</td>
+                <td>{% if boletinSalida.horaRegreso %}{{ boletinSalida.horaRegreso|date('H:i:s') }}{% endif %}</td>
+                <td>{{ boletinSalida.tiempoTotal }}</td>
+                <td>
+                    <div class="btn-group">
+                        <p>
+                            {{ form_start(delete_form) }}
+                                <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                            {{ form_end(delete_form) }}
+                        </p>
+                        <p>
+                            <a class="btn btn-primary btn-sm" href="{{ path('boletinsalida_edit', { 'id': boletinSalida.id }) }}">Edit</a>
+                        </p>
+                    </div> 
+                </td>
+            </tr>   
+        </tbody>
+    </table>   
+    <hr></hr>
+    <div align="center">
+        <p>
+            <a class="btn btn-primary btn-sm" href="{{ path('boletinsalida_index') }}">Historial</a>
+        </p>  
+    </div>
+{% endblock %}

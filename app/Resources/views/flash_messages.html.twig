@@ -1,0 +1,37 @@
+{% block flash_messages %}
+    {% for label, messages in app.session.flashbag.all %}
+        <div class="row">
+            <div class="col s12">
+                {% if label == "error" %}
+                    {% set color_flash_message = "red" %}
+                {% elseif label == "info" %}
+                    {% set color_flash_message = "blue" %}
+                {% elseif label == "failureCAS" %}
+                    {% set color_flash_message = "red darken-1" %}
+                {% else %}
+                    {% set color_flash_message = "green" %}
+                {% endif %}
+                <div class="card {{ color_flash_message }} lighten-2">
+                    <div class="card-content white-text">
+                    <span class="card-title">
+                        {% if label == "error" %}
+                            <i class="material-icons prefix white-text ">error</i> Error
+                        {% elseif label == "failureCAS" %}
+                            <i class="material-icons prefix white-text">error</i> Alerta
+                        {% elseif label == "notices" %}
+                            <i class="material-icons prefix white-text">info</i> Info
+                        {% else %}
+                            <i class="material-icons prefix white-text">info</i> Noticias
+                        {% endif %}
+                    </span>
+                        {% for message in messages %}
+                            <p>
+                                {{ message | raw }}
+                            </p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

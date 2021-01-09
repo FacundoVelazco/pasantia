@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1 align="center">Boletines De Salida</h1>
+    <hr><hr>
+    <table style="width:100%;margin-left:20px">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Agente</th>
+                <th>Dni</th>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Destino</th>
+                <th>Horasalida</th>
+                <th>Horaregreso</th>
+                <th>Tiempototal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for boletinSalida in boletinSalidas %}
+            <tr>
+                <td><a>{{ boletinSalida.id }}</a></td>
+                <td>{{ boletinSalida.agente }}</td>
+                <td>{{ boletinSalida.dni }}</td>
+                <td>{% if boletinSalida.fecha %}{{ boletinSalida.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ boletinSalida.tipo }}</td>
+                <td>{{ boletinSalida.destino }}</td>
+                <td>{% if boletinSalida.horaSalida %}{{ boletinSalida.horaSalida|date('H:i:s') }}{% endif %}</td>
+                <td>{% if boletinSalida.horaRegreso %}{{ boletinSalida.horaRegreso|date('H:i:s') }}{% endif %}</td>
+                <td>{{ boletinSalida.tiempoTotal }}</td>
+                <td>
+                    <div class="btn-group">
+                        <p>
+                            <a class="btn btn-primary btn-sm" href="{{ path('boletinsalida_show', { 'id': boletinSalida.id }) }}">show</a>
+                        </p>
+                        <p>
+                            <a class="btn btn-secondary btn-sm" href="{{ path('boletinsalida_edit', { 'id': boletinSalida.id }) }}">edit</a>
+                        </p>
+                    </div> 
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+     <hr><hr>
+    <ul>
+        <p>
+            <a class="btn btn-primary btn-sm" href="{{ path('boletinsalida_new') }}">Nuevo Boletin de Salida</a>
+        </p>
+    </ul>
+    <ul>
+        <p>
+            <a class="btn btn-primary btn-sm" href="{{ path('homepage') }}">Home</a>
+        </p>
+    </ul>
+{% endblock %}

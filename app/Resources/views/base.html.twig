@@ -1,13 +1,47 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
-</html>
+{#% extends '@STGTheme/Default/baseMaterializecss.html.twig' %#}
+{% extends '@STGTheme/Default/base.html.twig' %}
+{% block navBar %}
+    <a href="https://www.santafe.gob.ar" class="brand-logo">
+        <img src="https://www.santafe.gob.ar/assets/standard/images/gob-santafe.png">
+    </a>
+    <ul class="right hide-on-med-and-down">
+        {% block navBarItems %}
+            {% if app.user is not null %}
+                <li>
+                   <a href="{{ path('persona_perfil') }}" class="teal-text" title="Editar mis datos personales">Mis datos</a>
+                </li>
+                <li>
+                   <a href="{{ path('logout_cas') }}" class="teal-text" title="Salir del sistema...">Salir</a>
+                </li>
+            {% endif %}
+        {% endblock %}
+    </ul>
+{% endblock %}
+{% block main %}
+    <main class='main' container='container'>
+        <div id="wrapper">
+            <div id="container">
+                <hr><hr>
+                <hr><hr>
+            </div>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </main>    
+{% endblock %}
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('js/jquery-ui-1.12.1.custom/jquery-ui.min.css') }}">
+    {#    <link rel="stylesheet" href="{{ asset('materialize-0.100.2/dist/css/materialize.css') }}">#}
+    <style>
+        .cover {
+            background-image: url('{{ datos_encabezado_imagen | default(asset('images/obra-ruta.png')) }}') !important;
+        }
+    </style>
+{% endblock %}
+{% block javascript %}
+    {{ parent() }}
+    <script src="{{ asset('js/autonumeric.min.js') }}"></script>
+    <script src="{{ asset('js/general.js') }}"></script>
+    <script src="{{ asset('js/autocompleter-jqueryui.js') }}"></script>
+{% endblock %}

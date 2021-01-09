@@ -35,6 +35,16 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes:
+      - '@STGTheme/bootstrap_4_custom_layout.html.twig'
+    globals:
+        datos_encabezado_title: Registro de licitadores
+        datos_encabezado_entity: Ministerio de Infraestructura, Servicios Públicos y Hábitat
+# Tema de la provincia
+stg_theme:
+    configuration:
+        offline:  false
+        materialize: true
 
 # Doctrine Configuration
 doctrine:
