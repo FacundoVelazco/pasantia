@@ -9,16 +9,12 @@
 
             <div id="status">
                 <p>
-                   <form action="" method="get" >
-                   <center> 
-                    <input type="submit" value="Crear boletin nuevo"/>
-                    </center> 
-                    </form> 
-                    <form action="http://facebook.com" method="get" >
-                   <center>
-                    <input type="submit" value="Ver historial" /> 
-                    </center> 
-                    </form>
+                    <p> 
+                   <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("boletin_new") }}">Nuevo Boletin</a>
+                    </p> 
+                    <p> 
+                      <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("boletin_index") }}">Historial</a>
+                    </p> 
                     
                 </p>
             </div>
