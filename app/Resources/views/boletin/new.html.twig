@@ -1,16 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Boletin creation</h1>
+    <h1>Nuevo Boletin Salida Temporaria</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Create" />
+        <input type="submit" value="Create" class="btn btn-primary btn-lg" style="width:202px"/>
     {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('boletin_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <p>
+      <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("homepage") }}" align='center'>Volver</a>
+    </p>
 {% endblock %}

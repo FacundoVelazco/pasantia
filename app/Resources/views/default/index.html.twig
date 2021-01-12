@@ -1,28 +1,20 @@
 {% extends 'base.html.twig' %}
 
-{% block content %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome" align='center'>
-                <h1><span>Boletin de salida temporaria</span> </h1>
-            </div>
+{% block content %} 
 
+    <div id="wrapper" align='center'> 
+        <h1><span>Boletin de salida temporaria</span> </h1>
+        <div id="container" align='center'> 
             <div id="status">
                 <p>
                     <p> 
-                   <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("boletin_new") }}">Nuevo Boletin</a>
+                   <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("boletin_new") }}" align='center'>Crear salida</a>
                     </p> 
                     <p> 
-                      <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("boletin_index") }}">Historial</a>
+                      <a type="button" class="btn btn-primary btn-lg" style="width:202px" href="{{ path("boletin_index") }}" align='center'>Historial</a>
                     </p> 
-                    
                 </p>
             </div>
-
-            <div id="next">
-                
-            </div>
-
         </div>
     </div>
 {% endblock %}
