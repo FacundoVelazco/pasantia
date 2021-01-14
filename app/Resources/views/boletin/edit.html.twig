@@ -1,21 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Boletin edit</h1>
+    <h1>Editar boletin</h1>
 
-    {{ form_start(edit_form) }}
+{#     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
+        <input class="btn btn-primary btn-lg" style="width:202px" type="submit" value="Confirmar" />
     {{ form_end(edit_form) }}
 
     <ul>
         <li>
-            <a href="{{ path('boletin_index') }}">Back to the list</a>
+            <a class="btn btn-primary btn-lg" style="width:202px" href="{{ path('boletin_index') }}">Volver</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input class="btn btn-primary btn-lg" style="width:202px" type="submit" value="Eliminar">
             {{ form_end(delete_form) }}
         </li>
+    </ul>  #}
+    <ul> 
+         <li> 
+            {{ form_start(edit_form) }}
+                {{ form_widget(edit_form) }}
+                <input class="btn btn-primary btn-lg" style="width:202px" type="submit" value="Confirmar" />
+            {{ form_end(edit_form) }}
+
+            <a class="btn btn-primary btn-lg" style="width:202px" href="{{ path('boletin_index') }}">Volver</a> 
+
+            {{ form_start(delete_form) }}
+                <input class="btn btn-primary btn-lg" style="width:202px" type="submit" value="Eliminar">
+            {{ form_end(delete_form) }}
+         </li> 
     </ul>
 {% endblock %}

@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Boletin</h1>
+    <h1>Boletin salida temporaria</h1>
 
     <table>
         <tbody>
             <tr>
+                {# En un futuro el id tal vez no sea necesario que sea visible #}
                 <th>Id</th>
                 <td>{{ boletin.id }}</td>
             </tr>
@@ -30,15 +31,15 @@
                 <td>{{ boletin.destino }}</td>
             </tr>
             <tr>
-                <th>Horasalida</th>
+                <th>Hora salida</th>
                 <td>{% if boletin.horaSalida %}{{ boletin.horaSalida|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Horaregreso</th>
+                <th>Hora regreso</th>
                 <td>{% if boletin.horaRegreso %}{{ boletin.horaRegreso|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Tiempototal</th>
+                <th>Tiempo total</th>
                 <td>{{ boletin.tiempoTotal }}</td>
             </tr>
         </tbody>
@@ -46,15 +47,10 @@
 
     <ul>
         <li>
-            <a href="{{ path('boletin_index') }}">Back to the list</a>
+            <a class="btn btn-primary btn-lg" style="width:202px" href="{{ path('boletin_edit', { 'id': boletin.id }) }}">Editar</a>
+            <a class="btn btn-primary btn-lg" style="width:202px" href="{{ path('boletin_index') }}">Volver</a>
+            {# Aca iba un delete, pero no deberias poder eliminar un boletin #}
         </li>
-        <li>
-            <a href="{{ path('boletin_edit', { 'id': boletin.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    </ul> 
+
 {% endblock %}

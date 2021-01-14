@@ -12,9 +12,9 @@
                 <th>Fecha</th>
                 <th>Tipo</th>
                 <th>Destino</th>
-                <th>Horasalida</th>
-                <th>Horaregreso</th>
-                <th>Tiempototal</th>
+                <th>Hora salida</th>
+                <th>Hora regreso</th>
+                <th>Tiempo total</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -32,6 +32,7 @@
                 <td>{{ boletin.tiempoTotal }}</td>
                 <td>
                     <ul>
+                        {# En un futuro estas acciones no deberian ser visibles para todos #}
                         <li>
                             <a href="{{ path('boletin_show', { 'id': boletin.id }) }}">show</a>
                         </li>
@@ -47,7 +48,9 @@
 
     <ul>
         <li>
-            <a href="{{ path('boletin_new') }}">Create a new boletin</a>
+            <a class="btn btn-primary btn-lg" style="width:202px" href="{{ path('boletin_new') }}">Nuevo boletin</a> 
+            <a class="btn btn-primary btn-lg" style="width:202px" href="{{ path('homepage') }}">Volver</a>
         </li>
-    </ul>
+    </ul> 
+    
 {% endblock %}
