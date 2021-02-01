@@ -1,3 +1,14 @@
+Acerca del proyecto: 
+Es un proyecto que sirve como introduccion a symfony 3.4 cuyo principal objetivo es afianzar 
+los conocimientos en el framework symfony 3.4, empezar a interactuar con html, css, twig, doctrine y un poco en php. 
+El mismo trata de simular un boletin de salidas (fue necesario agregar algunas simplificaciones)
+que se utiliza en papel. 
+
+Proceso:
+El crud fue creado por consola gracias a la utilizacion de doctrine, una vez creado el crud se procedio a dar formato requerido 
+mediante la utilizacion de html y plantillas de twig 
+
+
 Symfony Standard Edition
 ========================
 
